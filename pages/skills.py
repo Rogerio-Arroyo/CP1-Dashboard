@@ -48,7 +48,7 @@ SOFT_SKILLS = [
 IDIOMAS = [
     ("Português", "Nativo"),
     ("Inglês", "Intermediário"),
-    ("<<Outro>>", "<<Nível>>"),
+    ("Espanhol", "Básico"),
 ]
 
 

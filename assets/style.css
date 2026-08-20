@@ -379,16 +379,43 @@ html, body {
   font-size: 13px;
   margin: 0 0 20px 0;
 }
-/* RangeSlider marks legíveis no tema escuro */
-.filtro-box .rc-slider-mark-text {
-  color: var(--muted) !important;
-}
-.filtro-box .rc-slider-mark-text-active {
+/* ---- Dash 4.x RangeSlider (Radix UI: classes dash-slider-*) ---- */
+/* Inputs numéricos de mínimo/máximo que aparecem nas laterais do slider.
+   Por padrão vinham com fundo branco — não davam para ler o ano. */
+.filtro-box .dash-range-slider-input,
+.filtro-box input.dash-range-slider-min-input,
+.filtro-box input.dash-range-slider-max-input {
+  background: var(--bg-2) !important;
   color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  padding: 4px 6px !important;
+  text-align: center;
+}
+.filtro-box .dash-range-slider-input:focus {
+  outline: none !important;
+  border-color: var(--accent-2) !important;
+  box-shadow: 0 0 0 2px rgba(94, 234, 212, 0.25) !important;
+}
+/* Marcas do slider (rótulos dos anos abaixo da trilha) */
+.filtro-box .dash-slider-mark {
+  color: var(--muted) !important;
+  font-size: 12px;
+}
+/* Tooltip que mostra o valor da alça arrastada */
+.filtro-box .dash-slider-tooltip {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Tooltip das alças (caixas que mostram o ano selecionado) — no tema escuro
-   ficavam branco no branco. Deixamos fundo escuro e texto claro. */
+/* --- Compatibilidade: classes antigas rc-slider (caso ainda ocorram) --- */
+.filtro-box .rc-slider-mark-text { color: var(--muted) !important; }
+.filtro-box .rc-slider-mark-text-active { color: var(--text) !important; }
 .filtro-box .rc-slider-tooltip-inner,
 .rc-slider-tooltip-inner {
   background-color: var(--accent) !important;
@@ -403,8 +430,6 @@ html, body {
   border-top-color: var(--accent) !important;
   border-bottom-color: var(--accent) !important;
 }
-/* Alguns temas do Dash renderizam o valor da alça como um "handle label"
-   com fundo branco fixo — forçamos o mesmo tratamento. */
 .filtro-box .rc-slider-handle {
   border-color: var(--accent) !important;
   background-color: var(--accent) !important;
@@ -421,7 +446,82 @@ html, body {
 .filtro-dropdown {
   max-width: 340px;
 }
-/* Dropdown do Dash (react-select) no tema escuro */
+/* Dash 4.x Dropdown (Radix UI: classes dash-dropdown) — tema escuro.
+   Antes o botão ficava com fundo branco padrão do <button>. */
+.filtro-dropdown.dash-dropdown,
+button.dash-dropdown.filtro-dropdown {
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.filtro-dropdown.dash-dropdown:hover {
+  border-color: var(--accent-2) !important;
+}
+.filtro-dropdown .dash-dropdown-value,
+.filtro-dropdown .dash-dropdown-value-item {
+  color: var(--text) !important;
+}
+.filtro-dropdown .dash-dropdown-trigger-icon {
+  color: var(--muted) !important;
+}
+/* Painel do dropdown aberto (renderizado em portal fora do .filtro-box) */
+.dash-dropdown-content {
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden;
+}
+/* Cabeçalho com o campo de busca */
+.dash-dropdown-search-container {
+  background: var(--bg-2) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 6px 8px !important;
+}
+.dash-dropdown-search {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  padding: 6px 8px 6px 26px !important;
+  width: 100%;
+  outline: none;
+}
+.dash-dropdown-search::placeholder {
+  color: var(--muted) !important;
+}
+.dash-dropdown-search-icon {
+  color: var(--muted) !important;
+}
+/* Lista de opções */
+.dash-options-list,
+.dash-dropdown-options {
+  background: var(--bg-2) !important;
+}
+.dash-options-list-option,
+.dash-dropdown-option {
+  background: var(--bg-2) !important;
+  color: var(--text) !important;
+  padding: 8px 12px !important;
+}
+.dash-options-list-option:hover,
+.dash-options-list-option[data-highlighted],
+.dash-dropdown-option:hover,
+.dash-dropdown-option[data-highlighted] {
+  background: var(--card-2) !important;
+  color: var(--accent-2) !important;
+}
+.dash-options-list-option.selected {
+  color: var(--accent) !important;
+}
+
+/* --- Compatibilidade: react-select antigo --- */
 .filtro-dropdown .Select-control,
 .filtro-dropdown .is-focused:not(.is-open) > .Select-control {
   background: var(--bg-2) !important;
