@@ -644,12 +644,12 @@ def layout():
             html.Section(
                 className="kpi-row",
                 children=[
-                    kpi_card("Custo médio de treino (2023)",
+                    kpi_card("Custo geométrico médio de treino (2023)",
                              f"US$ {RES_CUSTO.iloc[-1]['media_usd']/1e6:.2f}M",
                              f"IC 95%: US$ {RES_CUSTO.iloc[-1]['li_usd']/1e6:.2f}M – "
                              f"US$ {RES_CUSTO.iloc[-1]['ls_usd']/1e6:.2f}M"),
                     kpi_card("Crescimento vs. 2017",
-                             f"{CRESC_CUSTO:,.0f}× em 6 anos",
+                             f"{CRESC_CUSTO:,.1f}× em 6 anos",
                              "custo geométrico médio"),
                     kpi_card("Devs que usam IA (mundo)",
                              f"{IC_GLOBAL['p']*100:.1f}%",
@@ -1010,7 +1010,7 @@ def _secao_conclusao():
                 "O boom da IA é real e mensurável em duas frentes complementares: ",
                 html.Strong("do lado da oferta"),
                 ", o custo médio de treinar um modelo notável multiplicou-se por "
-                f"aproximadamente {CRESC_CUSTO:,.0f} vezes entre "
+                f"aproximadamente {CRESC_CUSTO:,.1f} vezes entre "
                 f"{int(RES_CUSTO.iloc[0]['ano'])} e {int(RES_CUSTO.iloc[-1]['ano'])}, "
                 "chegando à casa dos milhões de dólares por modelo; ",
                 html.Strong("do lado da demanda"),
