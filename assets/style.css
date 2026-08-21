@@ -469,7 +469,9 @@ button.dash-dropdown.filtro-dropdown {
 .filtro-dropdown .dash-dropdown-trigger-icon {
   color: var(--muted) !important;
 }
-/* Painel do dropdown aberto (renderizado em portal fora do .filtro-box) */
+/* Painel do dropdown aberto (renderizado em portal fora do .filtro-box).
+   O Dash aplica max-height:200px inline (mostra só ~3 opções); ampliamos
+   para caber todas as 9 organizações sem depender de scroll interno. */
 .dash-dropdown-content {
   background: var(--bg-2) !important;
   border: 1px solid var(--border) !important;
@@ -477,6 +479,12 @@ button.dash-dropdown.filtro-dropdown {
   border-radius: 6px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
   overflow: hidden;
+  max-height: min(480px, calc(100vh - 100px)) !important;
+}
+.dash-dropdown-content .dash-options-list,
+.dash-dropdown-content .dash-dropdown-options {
+  max-height: 420px !important;
+  overflow-y: auto !important;
 }
 /* Cabeçalho com o campo de busca */
 .dash-dropdown-search-container {
